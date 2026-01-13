@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title></title>
+        <link rel="stylesheet" href="style.css" type="text/css" media="all" />
+
+        <!--faild stylesheet-->
+       
+        <style>
+            * {
+    box-sizing: border-box;
+    font-family: system-ui, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #0f172a;
+}
+
+.card {
+    width: 360px;
+    padding: 20px;
+    border-radius: 16px;
+    background: linear-gradient(145deg, #22c55e, #16a34a);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+#preview {
+    min-height: 100px;
+    padding: 12px;
+    border-radius: 12px;
+    background: #020617;
+    color: #e5e7eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 18px;
+}
+
+#input {
+    height: 42px;
+    padding: 0 14px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+}
+
+#send {
+    height: 42px;
+    border-radius: 10px;
+    border: none;
+    background: #ef4444;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+#send:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+        </style>
+    </head>
+<body>  
+      
+<div class="card">
+    <div id="preview">Type something…</div>
+
+    <input 
+        type="text" 
+        id="input" 
+        placeholder="Write here"
+        autocomplete="off"
+    >
+
+    <button id="send">Send</button>
+</div>
+    </body>
+    
+    <!--faild javascript-->
+
+        <!--faild javascript End-->
+        <script>
+            const preview = document.getElementById("preview");
+const input = document.getElementById("input");
+const send = document.getElementById("send");
+let data=[]
+let num=0
+send.addEventListener("click", () => {
+    const value = input.value.trim();
+
+    if (value === "") {
+        preview.textContent = "Input is empty";
+        return;
+    }
+
+    preview.textContent = value;
+    input.value = "";
+    localStorage.setItem(num,value)
+    
+    data.push(value)
+    
+    prompt(data[num])
+    num++
+});
+console.log(data)
+        </script>
+</html>
